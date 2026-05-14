@@ -93,7 +93,9 @@ const DAYS = ["Segunda — Upper A", "Terça — Lower A", "Quarta — Upper B",
 function getToday() {
   const map = { 1: 0, 2: 1, 3: 2, 4: 3, 5: 4 };
   const d = new Date().getDay();
-  return map[d] !== undefined ? DAYS[map[d]] : DAYS[0];
+  return map[d as keyof typeof map] !== undefined
+  ? DAYS[map[d as keyof typeof map]]
+  : DAYS[0];
 }
 
 // ─── ICONS (inline SVG via lucide-style) ─────────────────────────────────────
